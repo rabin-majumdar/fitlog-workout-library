@@ -6,7 +6,7 @@ export default function Banner() {
         <section className="container mx-auto px-4 py-6 sm:px-6 lg:px-8 lg:py-12">
             <div className="relative overflow-hidden rounded-2xl border border-[#222630] bg-[#15171D]">
 
-                <div className="flex flex-col lg:min-h-[380px] lg:flex-row lg:items-center">
+                <div className="flex flex-col lg:min-h-95 lg:flex-row lg:items-center">
 
                     <div className="relative z-10 w-full px-6 py-10 sm:px-10 lg:w-2/3 lg:px-12 lg:py-12">
 
