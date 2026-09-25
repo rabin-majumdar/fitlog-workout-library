@@ -1,6 +1,6 @@
 import { getWorkoutsData } from "@/app/services/getWorkoutsData";
 import Image from "next/image";
-import { PiBookmarkSimple, PiCalendarPlus } from "react-icons/pi";
+import WorkoutActions from "./WorkoutActions";
 
 interface PageProps {
     params: Promise<{
@@ -31,7 +31,7 @@ export default async function Page({ params }: PageProps) {
                         className="object-cover"
                     />
                 </div>
-                
+
                 <div>
                     <h1 className="text-3xl font-bold uppercase text-white">
                         {workout.name}
@@ -152,25 +152,7 @@ export default async function Page({ params }: PageProps) {
                         </ol>
                     </div>
 
-                    <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-
-                        <button
-                            type="button"
-                            className="flex flex-1 items-center justify-center gap-2 rounded-md bg-[#C2F800] px-5 py-3 text-sm font-bold text-black transition hover:bg-lime-300"
-                        >
-                            <PiCalendarPlus size={20} />
-                            Add to today&apos;s plan
-                        </button>
-
-                        <button
-                            type="button"
-                            className="flex flex-1 items-center justify-center gap-2 rounded-md border border-[#2D313B] bg-[#15171D] px-5 py-3 text-sm font-bold text-white transition hover:border-[#C2F800]"
-                        >
-                            <PiBookmarkSimple size={20} />
-                            Save for later
-                        </button>
-
-                    </div>
+                    <WorkoutActions workout={workout} />
                 </div>
             </div>
         </main>

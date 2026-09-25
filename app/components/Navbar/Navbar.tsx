@@ -1,13 +1,20 @@
 'use client'
 
+import { WorkoutContext } from '@/app/context/WorkoutContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import Logo from "@/public/assets/logo.png"
 import { usePathname } from "next/navigation";
+import { useContext } from 'react';
 
 export default function Navbar() {
 
     const pathname = usePathname();
+    const context = useContext(WorkoutContext)
+
+    if (!context) {
+        throw new Error("Navbar must be used inside WorkoutProvider");
+    }
 
     const links = (
         <>
@@ -57,7 +64,7 @@ export default function Navbar() {
                         <div className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition">
                             <span className="text-[#9CA3AF] font-medium text-sm">Plan</span>
                             <div className="w-6 h-6 rounded-full bg-[#C2F800] text-black flex items-center justify-center text-xs font-extrabold">
-                                0
+                                {context.plan.length}
                             </div>
                         </div>
                     </Link>
@@ -66,7 +73,7 @@ export default function Navbar() {
                         <div className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition">
                             <span className="text-[#D1D5DB] font-medium text-sm">Saved</span>
                             <div className="w-6 h-6 rounded-full border border-[#2D313B] text-[#D1D5DB] flex items-center justify-center text-xs font-medium">
-                                0
+                                {context.saved.length}
                             </div>
                         </div>
                     </Link>
