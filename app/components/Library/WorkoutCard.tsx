@@ -2,6 +2,7 @@ import Image from "next/image";
 import { WorkoutType } from "@/app/types/WorkoutType";
 import { HiOutlineClock, HiOutlineFire } from "react-icons/hi";
 import { IoIosStarOutline } from "react-icons/io";
+import Link from "next/link";
 
 interface WorkoutCardProps {
     workout: WorkoutType;
@@ -9,7 +10,11 @@ interface WorkoutCardProps {
 
 export default function WorkoutCard({ workout }: WorkoutCardProps) {
     return (
-        <section className="overflow-hidden rounded-lg border border-[#222630] bg-[#15171D]">
+        <Link
+            href={`/workouts/${workout.id}`}
+            className="block overflow-hidden rounded-lg border border-[#222630] bg-[#15171D] transition hover:border-[#C2F800]"
+        >
+
             <div className="relative h-56 w-full">
                 <Image
                     src={workout.image}
@@ -53,6 +58,6 @@ export default function WorkoutCard({ workout }: WorkoutCardProps) {
                     <span>{workout.rating}</span>
                 </div>
             </div>
-        </section>
+        </Link>
     );
 }
