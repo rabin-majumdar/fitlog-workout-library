@@ -44,17 +44,17 @@ export default function WorkoutCard({ workout }: WorkoutCardProps) {
 
             <div className="flex items-center justify-between px-4 py-4 text-sm text-[#9CA3AF]">
                 <div className="flex items-center justify-center gap-1">
-                    <HiOutlineClock />
+                    <HiOutlineClock className="text-[#C2F800]" />
                     <span>{workout.duration} min</span>
                 </div>
 
                 <div className="flex items-center justify-center gap-1">
-                    <HiOutlineFire />
+                    <HiOutlineFire className="text-[#C2F800]" />
                     <span>{workout.caloriesBurned} kcal</span>
                 </div>
 
                 <div className="flex items-center justify-center gap-1">
-                    <IoIosStarOutline />
+                    <IoIosStarOutline className="text-[#C2F800]" />
                     <span>{workout.rating}</span>
                 </div>
             </div>
