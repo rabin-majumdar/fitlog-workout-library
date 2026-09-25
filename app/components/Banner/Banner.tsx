@@ -1,5 +1,6 @@
 import HeroImage from "@/public/assets/banner.png";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Banner() {
     return (
@@ -22,12 +23,13 @@ export default function Banner() {
                             FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today&apos;s plan, and watch the week&apos;s work add up.
                         </p>
 
-                        <button
-                            type="button"
-                            className="mt-7 rounded-md bg-[#C2F800] px-5 py-3 text-xs font-bold uppercase text-black transition hover:bg-lime-300"
+                        <Link
+                            href="#library"
+                            className="mt-7 inline-block rounded-md bg-[#C2F800] px-5 py-3 text-xs font-bold uppercase text-black transition hover:bg-lime-300"
                         >
                             Browse Workouts
-                        </button>
+                        </Link>
+
                     </div>
 
                     <div className="relative h-64 w-full sm:h-72 lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:h-full lg:w-2/5 lg:py-12 lg:pr-8">
