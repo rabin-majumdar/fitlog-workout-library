@@ -5,7 +5,7 @@ import Logo from "@/public/assets/logo.png";
 export default function Footer() {
     return (
         <footer className="mt-auto border-t border-[#222630] bg-[#0F1014]">
-            <div className="container mx-auto flex flex-col gap-4 px-4 py-6 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+            <div className="container mx-auto flex flex-col items-center gap-4 px-4 py-6 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
 
                 <Link
                     href="/"
@@ -24,9 +24,10 @@ export default function Footer() {
                     </span>
                 </Link>
 
-                <p className="text-xs text-[#9CA3AF] md:text-right">
+                <p className="text-center text-xs text-[#9CA3AF] md:text-right">
                     © 2026 FitLog — Workout Library. Train hard, log honest.
                 </p>
+
             </div>
         </footer>
     );
