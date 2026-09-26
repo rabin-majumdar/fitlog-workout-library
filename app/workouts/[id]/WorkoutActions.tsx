@@ -26,13 +26,22 @@ export default function WorkoutActions({ workout }: WorkoutActionsProps) {
         (item) => item.id === workout.id
     );
 
+    const isPlanFull = context.plan.length >= 5;
+
     return (
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
 
             <button
                 type="button"
-                disabled={isAdded}
+                disabled={isAdded || isPlanFull}
                 onClick={() => {
+                    if (context.plan.length >= 5) {
+                        toast.warning(
+                            "Today's plan can have a maximum of 5 workouts."
+                        );
+                        return;
+                    }
+
                     context.addToPlan(workout);
                     toast.success("Added to today's plan");
                 }}
@@ -47,7 +56,9 @@ export default function WorkoutActions({ workout }: WorkoutActionsProps) {
 
                 {isAdded
                     ? "Added to today's plan"
-                    : "Add to today's plan"}
+                    : isPlanFull
+                        ? "Plan is full"
+                        : "Add to today's plan"}
             </button>
 
             <button

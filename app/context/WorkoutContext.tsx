@@ -23,7 +23,13 @@ export function WorkoutProvider({
     const [saved, setSaved] = useState<WorkoutType[]>([]);
 
     const addToPlan = (workout: WorkoutType) => {
-        setPlan((prevPlan) => [...prevPlan, workout]);
+        setPlan((prevPlan) => {
+            if (prevPlan.length >= 5) {
+                return prevPlan;
+            }
+
+            return [...prevPlan, workout];
+        });
     };
 
     const saveForLater = (workout: WorkoutType) => {

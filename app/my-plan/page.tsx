@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { WorkoutContext } from "@/app/context/WorkoutContext";
 import PlanStats from "./PlanStats";
 import PlanHeader from "./PlanHeader";
@@ -17,6 +17,12 @@ export default function MyPlan() {
     const [sortBy, setSortBy] = useState<
         "duration" | "calories" | "rating"
     >("duration");
+
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setLoading(false);
+    }, []);
 
     if (!context) {
         throw new Error("MyPlan must be used inside WorkoutProvider");
@@ -58,7 +64,11 @@ export default function MyPlan() {
                 />
             </div>
 
-            {workouts.length > 0 ? (
+            {loading ? (
+                <p className="mt-8 text-center text-[#9CA3AF]">
+                    Loading workouts…
+                </p>
+            ) : workouts.length > 0 ? (
                 <WorkoutList
                     workouts={sortedWorkouts}
                     activeTab={activeTab}
@@ -66,7 +76,7 @@ export default function MyPlan() {
             ) : (
                 <EmptyState activeTab={activeTab} />
             )}
-            
+
         </main>
     );
 }
