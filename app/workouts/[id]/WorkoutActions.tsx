@@ -35,18 +35,11 @@ export default function WorkoutActions({ workout }: WorkoutActionsProps) {
                 type="button"
                 disabled={isAdded || isPlanFull}
                 onClick={() => {
-                    if (context.plan.length >= 5) {
-                        toast.warning(
-                            "Today's plan can have a maximum of 5 workouts."
-                        );
-                        return;
-                    }
-
                     context.addToPlan(workout);
                     toast.success("Added to today's plan");
                 }}
                 className={`flex flex-1 items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-bold transition
-        ${isAdded
+        ${isAdded || isPlanFull
                         ? "cursor-not-allowed bg-gray-700 text-gray-400"
                         : "cursor-pointer bg-[#C2F800] text-black hover:bg-lime-300"
                     }
