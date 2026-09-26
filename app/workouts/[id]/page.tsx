@@ -1,4 +1,4 @@
-import { getWorkoutsData } from "@/app/services/getWorkoutsData";
+import { getWorkoutById } from "@/app/services/getWorkoutsData";
 import Image from "next/image";
 import WorkoutActions from "./WorkoutActions";
 import { notFound } from "next/navigation";
@@ -15,8 +15,8 @@ export default async function Page({ params }: PageProps) {
 
     const { id } = await params;
     const workoutId = Number(id);
-    const workouts = await getWorkoutsData();
-    const workout = workouts.find((item) => item.id === workoutId)
+
+    const workout = await getWorkoutById(workoutId);
 
     if (!workout) {
         notFound();
