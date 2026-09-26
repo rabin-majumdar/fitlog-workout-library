@@ -2,6 +2,8 @@ import { getWorkoutsData } from "@/app/services/getWorkoutsData";
 import Image from "next/image";
 import WorkoutActions from "./WorkoutActions";
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import { FiArrowLeft } from "react-icons/fi";
 
 interface PageProps {
     params: Promise<{
@@ -23,6 +25,14 @@ export default async function Page({ params }: PageProps) {
 
     return (
         <main className="container mx-auto px-4 py-12">
+            <Link
+                href="/"
+                className="mb-6 inline-flex items-center gap-2 rounded-md border border-[#222630] bg-[#15171D] px-4 py-2 text-sm font-semibold text-[#9CA3AF] transition hover:border-[#C2F800] hover:text-[#C2F800]"
+            >
+                <FiArrowLeft size={18} />
+                Back to Workouts
+            </Link>
+
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
                 <div className="relative h-64 w-full overflow-hidden rounded-lg sm:h-80 lg:h-full">
                     <Image
