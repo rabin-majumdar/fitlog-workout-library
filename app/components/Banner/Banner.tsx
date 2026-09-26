@@ -1,6 +1,7 @@
 import HeroImage from "@/public/assets/banner.png";
 import Image from "next/image";
 import Link from "next/link";
+import { HiArrowDown } from "react-icons/hi";
 
 export default function Banner() {
     return (
@@ -25,9 +26,10 @@ export default function Banner() {
 
                         <Link
                             href="#library"
-                            className="mt-7 inline-block rounded-md bg-[#C2F800] px-5 py-3 text-xs font-bold uppercase text-black transition hover:bg-lime-300"
+                            className="mt-7 inline-flex items-center gap-2 rounded-md bg-[#C2F800] px-5 py-3 text-xs font-bold uppercase text-black transition hover:bg-lime-300"
                         >
                             Browse Workouts
+                            <HiArrowDown />
                         </Link>
 
                     </div>

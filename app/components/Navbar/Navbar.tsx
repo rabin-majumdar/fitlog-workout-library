@@ -5,12 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Logo from "@/public/assets/logo.png"
 import { usePathname } from "next/navigation";
-import { useContext } from 'react';
+import { useContext, useState } from "react";
+import { HiOutlineMenu, HiX } from "react-icons/hi";
 
 export default function Navbar() {
 
     const pathname = usePathname();
     const context = useContext(WorkoutContext)
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     if (!context) {
         throw new Error("Navbar must be used inside WorkoutProvider");
@@ -45,9 +47,33 @@ export default function Navbar() {
             <div className="navbar text-white mx-auto container">
 
                 <div className="navbar-start">
-                    <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition">
-                        <Image src={Logo} alt="FitLog" width={20} height={20} className="w-5 h-5" />
-                        <span className="text-xl font-black tracking-widest mt-1">FITLOG</span>
+                    <button
+                        type="button"
+                        onClick={() => setIsMenuOpen((prev) => !prev)}
+                        className="mr-3 text-white lg:hidden"
+                        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                    >
+                        {isMenuOpen ? (
+                            <HiX size={24} />
+                        ) : (
+                            <HiOutlineMenu size={24} />
+                        )}
+                    </button>
+
+                    <Link
+                        href="/"
+                        className="flex items-center gap-2 transition hover:opacity-80"
+                    >
+                        <Image
+                            src={Logo}
+                            alt="FitLog"
+                            width={20}
+                            height={20}
+                            className="h-5 w-5"
+                        />
+                        <span className="mt-1 text-xl font-black tracking-widest">
+                            FITLOG
+                        </span>
                     </Link>
                 </div>
 
@@ -79,6 +105,14 @@ export default function Navbar() {
                     </Link>
                 </div>
             </div>
+
+            {isMenuOpen && (
+                <div className="border-t border-gray-800 lg:hidden">
+                    <ul className="flex flex-col gap-2 px-4 py-3">
+                        {links}
+                    </ul>
+                </div>
+            )}
         </nav>
     );
 };

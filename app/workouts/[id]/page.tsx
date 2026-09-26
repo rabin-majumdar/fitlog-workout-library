@@ -1,6 +1,7 @@
 import { getWorkoutsData } from "@/app/services/getWorkoutsData";
 import Image from "next/image";
 import WorkoutActions from "./WorkoutActions";
+import { notFound } from "next/navigation";
 
 interface PageProps {
     params: Promise<{
@@ -16,7 +17,7 @@ export default async function Page({ params }: PageProps) {
     const workout = workouts.find((item) => item.id === workoutId)
 
     if (!workout) {
-        return <p>Workout not found.</p>;
+        notFound();
     };
 
 
