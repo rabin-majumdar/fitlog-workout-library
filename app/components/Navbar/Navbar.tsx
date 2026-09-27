@@ -69,6 +69,7 @@ export default function Navbar() {
                             alt="FitLog"
                             width={20}
                             height={20}
+                            priority
                             className="h-5 w-5"
                         />
                         <span className="mt-1 text-xl font-black tracking-widest">

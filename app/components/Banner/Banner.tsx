@@ -40,6 +40,8 @@ export default function Banner() {
                                 src={HeroImage}
                                 alt="Workout illustration"
                                 fill
+                                priority
+                                sizes="(max-width: 1024px) 100vw, 40vw"
                                 className="object-contain object-center"
                             />
                         </div>

@@ -15,14 +15,16 @@ export default function WorkoutCard({ workout }: WorkoutCardProps) {
             className="block overflow-hidden rounded-lg border border-[#222630] bg-[#15171D] transition hover:border-[#C2F800]"
         >
 
-            <div className="relative h-56 w-full">
+            <div className="relative aspect-video w-full overflow-hidden">
                 <Image
                     src={workout.image}
                     alt={workout.name}
                     fill
-                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 hover:scale-105"
                 />
             </div>
+
             <div className="flex flex-wrap gap-2 p-4">
                 {workout.muscleGroups.map((muscle) => (
                     <span

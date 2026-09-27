@@ -33,12 +33,15 @@ export default async function Page({ params }: PageProps) {
                 Back to Workouts
             </Link>
 
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-                <div className="relative h-64 w-full overflow-hidden rounded-lg sm:h-80 lg:h-full">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-stretch">
+
+                <div className="relative min-h-75 w-full overflow-hidden rounded-lg sm:min-h-100 lg:min-h-full">
                     <Image
                         src={workout.image}
                         alt={workout.name}
                         fill
+                        priority
+                        sizes="(max-width: 1024px) 100vw, 50vw"
                         className="object-cover"
                     />
                 </div>

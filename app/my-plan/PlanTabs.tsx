@@ -12,7 +12,7 @@ export default function PlanTabs({ activeTab, setActiveTab, }: PlanTabsProps) {
                 type="button"
                 onClick={() => setActiveTab("plan")}
                 className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 focus:outline-none ${activeTab === "plan"
-                    ? "border border-slate-700/50 bg-[#222938] px-5 font-semibold text-white shadow-md"
+                    ? "border border-slate-700/50 bg-[#222938] px-5 font-semibold text-[#C2F800] shadow-md"
                     : "text-slate-400 hover:text-slate-200"
                     }`}
             >
@@ -23,7 +23,7 @@ export default function PlanTabs({ activeTab, setActiveTab, }: PlanTabsProps) {
                 type="button"
                 onClick={() => setActiveTab("saved")}
                 className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 focus:outline-none ${activeTab === "saved"
-                    ? "border border-slate-700/50 bg-[#222938] px-5 font-semibold text-white shadow-md"
+                    ? "border border-slate-700/50 bg-[#222938] px-5 font-semibold text-[#C2F800] shadow-md"
                     : "text-slate-400 hover:text-slate-200"
                     }`}
             >

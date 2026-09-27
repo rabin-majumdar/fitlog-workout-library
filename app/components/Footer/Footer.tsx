@@ -16,6 +16,7 @@ export default function Footer() {
                         alt="FitLog"
                         width={20}
                         height={20}
+                        priority
                         className="h-5 w-5"
                     />
 

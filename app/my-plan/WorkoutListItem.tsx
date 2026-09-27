@@ -35,6 +35,7 @@ export default function WorkoutListItem({
                         src={workout.image}
                         alt={workout.name}
                         fill
+                        sizes="(max-width: 640px) 100vw, 112px"
                         className="object-cover"
                     />
                 </div>
